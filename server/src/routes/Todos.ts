@@ -23,7 +23,7 @@ router.get('/', async (_req: Request, res: Response) => {
 });
 
 // GET a single todo
-router.get('/:todoId', async (req: Request, res: Response) => {
+router.get('/:id', async (req: Request, res: Response) => {
     const { id } = req.params;
 
     try {
@@ -52,7 +52,7 @@ router.post('/', async (req: Request, res: Response) => {
 });
 
 // PATCH (update) a todo
-router.patch('/:todoId', async (req: Request, res: Response) => {
+router.patch('/:id', async (req: Request, res: Response) => {
     const { id } = req.params;
     const { status } = req.body;
 
@@ -73,7 +73,7 @@ router.patch('/:todoId', async (req: Request, res: Response) => {
 });
 
 // DELETE a todo
-router.delete('/:todoId', async (req: Request, res: Response) => {
+router.delete('/:id', async (req: Request, res: Response) => {
     const { id } = req.params;
 
     try {
