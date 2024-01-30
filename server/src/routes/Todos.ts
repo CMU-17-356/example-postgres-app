@@ -9,7 +9,7 @@ interface TodoInstance extends Model {
     title: string;
     description: string;
     createdAt: Date;
-    status: string;
+    completed: string;
 }
 
 // GET all todos
@@ -54,7 +54,7 @@ router.post('/', async (req: Request, res: Response) => {
 // PATCH (update) a todo
 router.patch('/:id', async (req: Request, res: Response) => {
     const { id } = req.params;
-    const { status } = req.body;
+    const { completed } = req.body;
 
     try {
         const todo = await Todo.findByPk(id) as TodoInstance;
@@ -63,7 +63,7 @@ router.patch('/:id', async (req: Request, res: Response) => {
             return;
         }
 
-        todo.status = status;
+        todo.completed = completed;
         await todo.save();
 
         res.json(todo);

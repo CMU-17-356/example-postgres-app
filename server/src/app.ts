@@ -4,6 +4,9 @@ import todoRoutes from './routes/Todos';
 import { sequelize } from './models/Todo';
 
 const app = express();
+const cors = require('cors');
+
+app.use(cors());
 const PORT = process.env.PORT || 8080;
 
 // Middleware to parse JSON requests
